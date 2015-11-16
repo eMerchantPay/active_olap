@@ -5,7 +5,7 @@ module ActiveOLAP
     self.send(:extend, ClassMethods)
     self.send(:extend, Utils)
     
-    self.named_scope :olap_drilldown, lambda { |hash| self.olap_drilldown_finder_options(hash) }    
+    self.scope :olap_drilldown, lambda { |hash| self.olap_drilldown_finder_options(hash) }    
     
     self.cattr_accessor :active_olap_dimensions, :active_olap_aggregates
     self.active_olap_dimensions = {}
