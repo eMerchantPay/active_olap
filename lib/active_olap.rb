@@ -71,7 +71,8 @@ module ActiveOLAP
 
       olap_temporarily_set_join_type if joins_clause
 
-      result = self.where(conditions)
+      result = self.from(self.table_name)
+      result = result.where(conditions)
       result = result.select(selects.join(', ')) if selects.present?
       result = result.joins(joins_clause) if joins_clause.present?
       result = result.group(group_clause) if group_clause.present?
